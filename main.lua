@@ -11,6 +11,7 @@ require 'Bullet'
 
 
 
+
 -- size of our actual window
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -22,6 +23,7 @@ VIRTUAL_HEIGHT = 243
 
 function love.load()
 
+    font = love.graphics.newFont("fonts/font.ttf", 18)
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.window.setTitle('Space Invaders')
     math.randomseed(os.time())
@@ -74,7 +76,7 @@ function love.draw()
     push:apply('start')
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
-
+    love.graphics.setFont(font)
     gStateMachine:render()
     
  
@@ -96,7 +98,7 @@ end
 
 function renderScore(score)
     
-    love.graphics.print('Score:', VIRTUAL_WIDTH - 90, 5)
+    love.graphics.print('Score:', VIRTUAL_WIDTH - 120, 5)
     love.graphics.printf(tostring(score), VIRTUAL_WIDTH - 50, 5, 40, 'right')
 end
 
