@@ -1,10 +1,3 @@
-require 'StateMachine'
-require 'Enemy'
-require 'Levelmaker'
-require 'Player'
-require 'Bullet'
-
-
 PlayState = Class{__includes = BaseState}
 
 function PlayState:enter(params)
