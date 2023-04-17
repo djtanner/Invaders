@@ -3,6 +3,7 @@ Class = require 'class'
 require 'StateMachine'
 require 'states/BaseState'
 require 'states/PlayState'
+require 'states/StartState'
 require 'Enemy'
 require 'Levelmaker'
 require 'Player'
@@ -38,10 +39,10 @@ function love.load()
         
        
     }
-    gStateMachine:change('play', {
+   --[[  gStateMachine:change('play', {
         score = 0, level = 1
-    })
-
+    }) ]]
+    gStateMachine:change('start')
  
 
 end

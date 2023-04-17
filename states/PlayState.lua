@@ -31,7 +31,12 @@ function PlayState:update(dt)
             
             table.insert(bullets,bullet)
         end
-     end
+     
+        if key == 'escape' then
+            love.event.quit()
+        end
+    
+    end
 
      if next(bullets) ~= nil then
         for a, bullet in ipairs(bullets) do
