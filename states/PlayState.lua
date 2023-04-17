@@ -45,6 +45,7 @@ function PlayState:update(dt)
             bullet:update(dt)
             for k, enemy in pairs(self.enemies) do
                 if bullet:collides(enemy) then
+                    self.score= self.score + 10
                     table.remove(self.enemies,k)
                     table.remove(bullets,a)
                 end
@@ -67,5 +68,6 @@ function PlayState:render()
         bullet:render()
     end
 
+    renderScore(self.score)
 
 end

@@ -92,3 +92,9 @@ function love.draw()
     love.graphics.setColor(0, 1, 0, 1)
     love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
 end
+
+function renderScore(score)
+    
+    love.graphics.print('Score:', VIRTUAL_WIDTH - 90, 5)
+    love.graphics.printf(tostring(score), VIRTUAL_WIDTH - 50, 5, 40, 'right')
+end
