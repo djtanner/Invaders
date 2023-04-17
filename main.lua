@@ -74,13 +74,14 @@ function love.update(dt)
         end
      end
 
-
+-- destroy bullet and enemy on collision
     if next(bullets) ~= nil then
-        for k, bullet in ipairs(bullets) do
+        for a, bullet in ipairs(bullets) do
             bullet:update(dt)
             for k, enemy in pairs(enemies) do
                 if bullet:collides(enemy) then
                     table.remove(enemies,k)
+                    table.remove(bullets,a)
                 end
             end
 
