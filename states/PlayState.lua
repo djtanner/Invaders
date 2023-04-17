@@ -14,9 +14,10 @@ function PlayState:update(dt)
 
     for k, enemy in pairs(self.enemies) do
         enemy:update(dt)
-         -- end game if enemy hits the ground (change this later to colliding with player)
-             if enemy.y >= VIRTUAL_HEIGHT then
+         -- end game if enemy hits the same level as player
+             if enemy.y >= VIRTUAL_HEIGHT-14 then
                      gameState = 'gameover'
+                     
         
                     end
      end
@@ -28,7 +29,7 @@ function PlayState:update(dt)
             bullet = Bullet()
             bullet.x = self.player.x + self.player.width/2 - bullet.width/2
             bullet.y = self.player.y - 8
-            
+    
             table.insert(bullets,bullet)
         end
      
@@ -62,7 +63,7 @@ function PlayState:render()
     self.player:render()
 
    
-    for k, enemy in pairs(bullets) do
+    for j, bullet in pairs(bullets) do
         bullet:render()
     end
 

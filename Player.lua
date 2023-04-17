@@ -4,7 +4,7 @@ function Player:init()
     -- x is placed in the middle
     self.x = VIRTUAL_WIDTH / 2 - 32
 
-    self.y = VIRTUAL_HEIGHT - 32
+    self.y = VIRTUAL_HEIGHT - 16
     
     self.dx = 0
  
