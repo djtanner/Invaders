@@ -91,11 +91,17 @@ function love.draw()
     -- simple FPS display across all states
     
     love.graphics.setColor(0, 1, 0, 1)
-    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
+    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 40)
 end
 
 function renderScore(score)
     
     love.graphics.print('Score:', VIRTUAL_WIDTH - 90, 5)
     love.graphics.printf(tostring(score), VIRTUAL_WIDTH - 50, 5, 40, 'right')
+end
+
+function renderLevel(level)
+    
+    love.graphics.print('Level:', 10, 5)
+    love.graphics.printf(tostring(level),  60, 5, 40, 'left')
 end

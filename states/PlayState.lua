@@ -11,15 +11,18 @@ end
 
 function PlayState:update(dt)
 
+    if next(self.enemies) == nil then
+        self.level = self.level + 1
+        self.enemies = LevelMaker.createMap(self.level)
+    end
+
 
     for k, enemy in pairs(self.enemies) do
         enemy:update(dt)
          -- end game if enemy hits the same level as player
              if enemy.y >= VIRTUAL_HEIGHT-14 then
-                     gameState = 'gameover'
-                     
-        
-                    end
+                     gameState = 'gameover'      
+             end
      end
     
     self.player:update(dt)
@@ -68,5 +71,7 @@ function PlayState:render()
     end
 
     renderScore(self.score)
+    
+    renderLevel(self.level)
 
 end
