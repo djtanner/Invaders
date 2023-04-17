@@ -1,10 +1,13 @@
 push = require 'push'
 Class = require 'class'
-
+require 'StateMachine'
+require 'states/BaseState'
+require 'states/PlayState'
 require 'Enemy'
 require 'Levelmaker'
 require 'Player'
 require 'Bullet'
+
 
 
 -- size of our actual window
@@ -29,19 +32,17 @@ function love.load()
         vsync = true
     })
 
-    
-    enemy = Enemy(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
+    gStateMachine = StateMachine {
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end,
+        
+       
+    }
+    gStateMachine:change('play', {
+        score = 0, level = 1
+    })
 
-    score = 0
-
-    gameState = 'start'
-    
-    
-    level = 1
-    enemies = LevelMaker.createMap(level)
-    player = Player()
-   
-    bullets = {}
+ 
 
 end
 
@@ -51,44 +52,7 @@ end
 
 
 function love.update(dt)
-
-    for k, enemy in pairs(enemies) do
-        enemy:update(dt)
-         -- end game if enemy hits the ground (change this later to colliding with player)
-             if enemy.y >= VIRTUAL_HEIGHT then
-                     gameState = 'gameover'
-        
-                    end
-     end
-    
-    player:update(dt)
-
-
-    function love.keypressed(key)
-        if key == "space" then
-            bullet = Bullet()
-            bullet.x = player.x + player.width/2 - bullet.width/2
-            bullet.y = player.y - 8
-            
-            table.insert(bullets,bullet)
-        end
-     end
-
--- destroy bullet and enemy on collision
-    if next(bullets) ~= nil then
-        for a, bullet in ipairs(bullets) do
-            bullet:update(dt)
-            for k, enemy in pairs(enemies) do
-                if bullet:collides(enemy) then
-                    table.remove(enemies,k)
-                    table.remove(bullets,a)
-                end
-            end
-
-        end
-    end
-
-    
+    gStateMachine:update(dt)
 
   
 end
@@ -110,20 +74,9 @@ function love.draw()
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
 
-   
+    gStateMachine:render()
     
-   for k, enemy in pairs(enemies) do
-        enemy:render()
-    end
-    
-    player:render()
-
-   
-    for k, enemy in pairs(bullets) do
-        bullet:render()
-    end
-
-
+ 
 
     -- display FPS for debugging; simply comment out to remove
      displayFPS()
