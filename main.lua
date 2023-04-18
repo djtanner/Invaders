@@ -99,7 +99,7 @@ end
 function renderScore(score)
     
     love.graphics.print('Score:', VIRTUAL_WIDTH - 120, 5)
-    love.graphics.printf(tostring(score), VIRTUAL_WIDTH - 50, 5, 40, 'right')
+    love.graphics.printf(tostring(score), VIRTUAL_WIDTH - 60, 5, 60, 'right')
 end
 
 function renderLevel(level)

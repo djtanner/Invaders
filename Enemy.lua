@@ -1,6 +1,6 @@
 Enemy = Class{}
 
-function Enemy:init(x, y, width, height)
+function Enemy:init(x, y, width, height,level)
     self.x = x
     self.y = y
     self.width = width
@@ -8,6 +8,22 @@ function Enemy:init(x, y, width, height)
 
     self.dy = 0
     self.dx = 50
+
+    self.level = level
+
+    if self.level < 3 then
+        self.dx = 50
+
+    elseif self.level <= 5 then
+        self.dx = 75
+    
+    elseif self.level <=8 then
+        self.dx = 90
+
+    else self.dx = 140
+    end
+
+
 end
 
 
@@ -29,12 +45,31 @@ function Enemy:update(dt)
     end
 
     -- increase speed as get lower on screen
-    if self.y > VIRTUAL_HEIGHT / 2 and self.dx > 0 then
+    if self.y > VIRTUAL_HEIGHT / 2 and self.dx > 0 and self.level < 3 then
         self.dx = 75
-    end
-    if self.y > VIRTUAL_HEIGHT / 2 and self.dx < 0 then
+    
+    elseif self.y > VIRTUAL_HEIGHT / 2 and self.dx < 0 and self.level < 3 then
         self.dx = -75
+    
+    elseif self.y > VIRTUAL_HEIGHT / 2 and self.dx > 0 and self.level <= 5 then
+        self.dx = 90
+    
+    elseif self.y > VIRTUAL_HEIGHT / 2 and self.dx < 0 and self.level <= 5 then
+        self.dx = -90
+
+    elseif self.y > VIRTUAL_HEIGHT / 2 and self.dx > 0 and self.level > 5 then
+        self.dx = 150
+    
+    elseif self.y > VIRTUAL_HEIGHT / 2 and self.dx < 0 and self.level > 5 then
+        self.dx = -150
+
+
     end
+
+
+
+
+
 
 
 
