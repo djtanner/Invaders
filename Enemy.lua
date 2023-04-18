@@ -23,11 +23,19 @@ function Enemy:init(x, y, width, height,level)
     else self.dx = 140
     end
 
+    self.animation = Animation {
+        frames = {1,2,3,4},
+        interval = 0.5
+    }
+    self.currentAnimation = self.animation
 
 end
 
 
 function Enemy:update(dt)
+
+    self.currentAnimation:update(dt)
+
     self.x = self.x + self.dx * dt
     self.y = self.y + self.dy * dt
 
@@ -76,5 +84,30 @@ function Enemy:update(dt)
 end
 
 function Enemy:render()
-    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+   -- love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+   
+   if self.level == 1 then
+   love.graphics.draw(gTextures['mermaid'], gFrames['mermaid'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+   
+   elseif self.level == 2 then
+    love.graphics.draw(gTextures['priestess'], gFrames['priestess'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+   
+
+   elseif self.level % 3 == 0 then
+    love.graphics.draw(gTextures['gypsy'], gFrames['gypsy'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+
+   elseif self.level % 4 == 0 then
+    love.graphics.draw(gTextures['steambot1'], gFrames['steambot1'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+
+   elseif self.level % 5 == 0 then
+    love.graphics.draw(gTextures['steambot3'], gFrames['steambot3'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+
+   else love.graphics.draw(gTextures['steambot2'], gFrames['steambot2'][self.currentAnimation:getCurrentFrame()], self.x, self.y)
+   
+    
+end
+
+
+
+
 end

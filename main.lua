@@ -8,6 +8,8 @@ require 'Enemy'
 require 'Levelmaker'
 require 'Player'
 require 'Bullet'
+require 'Dependencies'
+require 'Animation'
 
 
 
@@ -75,7 +77,8 @@ function love.draw()
     -- begin drawing with push, in our virtual resolution
     push:apply('start')
 
-    love.graphics.clear(40/255, 45/255, 52/255, 255/255)
+   
+   love.graphics.clear(236/255, 201/255, 238/255, 255/255)
     love.graphics.setFont(font)
     gStateMachine:render()
     

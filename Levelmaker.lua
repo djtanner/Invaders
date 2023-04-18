@@ -22,7 +22,7 @@ function LevelMaker.createMap(level)
                     
 
                 e = Enemy(
-                    (x-1) * 20 + 40 , y * 20 + 24 , 10, 10, level
+                    (x-1) * 20 + 40 , y * 20 + 24 , 32, 32, level
                 )
               
                 table.insert(enemies,e)

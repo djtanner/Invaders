@@ -23,7 +23,7 @@ end
 
 function StartState:render()
     -- title
-    
+    love.graphics.clear(40/255, 45/255, 52/255, 255/255)
 
     love.graphics.printf("SPACE INVADERS", 0, VIRTUAL_HEIGHT / 3,
         VIRTUAL_WIDTH, 'center')

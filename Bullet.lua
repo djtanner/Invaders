@@ -5,7 +5,7 @@ function Bullet:init()
     self.height = 12
     self.dy = -90
     self.dx = 0
-    
+    bulletimg = love.graphics.newImage("graphics/bullet.png")
 
 end
 
@@ -16,7 +16,8 @@ function Bullet:update(dt)
 end
 
 function Bullet:render()
-    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    --love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    love.graphics.draw(bulletimg, self.x,self.y, 0, 0.3,0.3)
 end
 
 
