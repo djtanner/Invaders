@@ -23,6 +23,8 @@ function Player:changeState(state, params)
 end
 
 function Player:update(dt)
+
+    self.stateMachine:update(dt)
     
     if love.keyboard.isDown('left') then
         self.dx = -100
