@@ -4,7 +4,7 @@ function PlayerWalkingLeftState:init(player)
     self.player = player
 
     self.animation = Animation {
-        frames = {160,161,162,163},
+        frames = {1,2,3,4,5,6,7,8,9,10},
         interval = 0.2
     }
 

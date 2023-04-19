@@ -4,7 +4,7 @@ function PlayerIdleState:init(player)
     self.player = player
 
     self.animation = Animation {
-        frames = {100,101,102},
+        frames = {1,2,3},
         interval = 0.5
     }
 
