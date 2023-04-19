@@ -34,8 +34,10 @@ function PlayState:update(dt)
             bullet = Bullet()
             bullet.x = self.player.x + self.player.width/2 - bullet.width/2
             bullet.y = self.player.y - 8
-    
+            -- only allow shooting 3 bullets at a time
+            if tablelength(bullets) < 3 then
             table.insert(bullets,bullet)
+            end
         end
      
         if key == 'escape' then
@@ -53,6 +55,11 @@ function PlayState:update(dt)
      if next(bullets) ~= nil then
         for a, bullet in ipairs(bullets) do
             bullet:update(dt)
+            -- remove bullet if it goes off screen
+            if bullet.y <= 0 then 
+                table.remove(bullets,a)
+            end
+
             for k, enemy in pairs(self.enemies) do
                 if bullet:collides(enemy) then
                     self.score= self.score + 10
