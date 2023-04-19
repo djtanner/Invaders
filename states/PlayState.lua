@@ -4,10 +4,17 @@ function PlayState:enter(params)
     self.score = params.score
     self.level = params.level
     self.enemies = LevelMaker.createMap(self.level)
-    self.player = Player()
+    self.player = Player({stateMachine = StateMachine {
+        ['idle'] = function() return PlayerIdleState(self.player) end 
+    }})
    
     bullets = {}
+
+    self.player:changeState('idle')
 end
+
+
+
 
 function PlayState:update(dt)
 

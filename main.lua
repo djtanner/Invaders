@@ -11,6 +11,7 @@ require 'Player'
 require 'Bullet'
 require 'Dependencies'
 require 'Animation'
+require 'states/Player/PlayerIdleState'
 
 
 
