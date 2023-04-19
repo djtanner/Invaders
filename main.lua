@@ -4,6 +4,7 @@ require 'StateMachine'
 require 'states/BaseState'
 require 'states/PlayState'
 require 'states/StartState'
+require 'states/GameOverState'
 require 'Enemy'
 require 'Levelmaker'
 require 'Player'
@@ -40,6 +41,7 @@ function love.load()
     gStateMachine = StateMachine {
         ['start'] = function() return StartState() end,
         ['play'] = function() return PlayState() end,
+        ['gameover'] = function() return GameOverState() end,
         
        
     }
