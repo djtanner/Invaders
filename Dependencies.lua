@@ -3,6 +3,8 @@ require 'Util'
 
 -- swords from https://snoopethduckduck.itch.io/swords
 -- enemy assets from https://chierit.itch.io/lively-npcs
+-- player asset from https://merchant-shade.itch.io/16x16-puny-characters
+
 
 
 
