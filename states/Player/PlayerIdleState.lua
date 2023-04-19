@@ -14,9 +14,12 @@ end
 function PlayerIdleState:update(dt)
     self.player.currentAnimation:update(dt)
 
-    if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
-        self.player:changeState('walking')
+    if love.keyboard.isDown('right') then
+        self.player:changeState('walkingright')
     end
 
+    if love.keyboard.isDown('left') then
+        self.player:changeState('walkingleft')
+    end
  
 end

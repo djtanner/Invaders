@@ -5,7 +5,9 @@ function PlayState:enter(params)
     self.level = params.level
     self.enemies = LevelMaker.createMap(self.level)
     self.player = Player({stateMachine = StateMachine {
-        ['idle'] = function() return PlayerIdleState(self.player) end 
+        ['idle'] = function() return PlayerIdleState(self.player) end,
+        ['walkingright'] = function() return PlayerWalkingRightState(self.player) end, 
+        ['walkingleft'] = function() return PlayerWalkingLeftState(self.player) end  
     }})
    
     bullets = {}

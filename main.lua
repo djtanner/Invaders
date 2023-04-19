@@ -11,7 +11,10 @@ require 'Player'
 require 'Bullet'
 require 'Dependencies'
 require 'Animation'
+require 'states/Player/PlayerWalkingRightState'
+require 'states/Player/PlayerWalkingLeftState'
 require 'states/Player/PlayerIdleState'
+
 
 
 
@@ -86,8 +89,8 @@ function love.draw()
     
  
 
-    -- display FPS for debugging; simply comment out to remove
-     displayFPS()
+    -- display FPS for debugging
+   --  displayFPS()
 
      -- end our drawing to push
      push:apply('end')
