@@ -99,7 +99,7 @@ function PlayState:update(dt)
     for k, enemy in pairs(self.enemies) do
         enemy:update(dt)
          -- end game if enemy hits the same level as player
-             if enemy.y >= VIRTUAL_HEIGHT-20 then
+             if enemy:collides(self.player) then
                 gStateMachine:change('gameover', {
                     score = self.score, level = self.level
                 })     
