@@ -49,9 +49,7 @@ function love.load()
         
        
     }
-   --[[  gStateMachine:change('play', {
-        score = 0, level = 1
-    }) ]]
+
     gStateMachine:change('start')
  
 
@@ -64,6 +62,7 @@ end
 
 function love.update(dt)
     gStateMachine:update(dt)
+    
 
   
 end
@@ -82,8 +81,8 @@ function love.draw()
     -- begin drawing with push, in our virtual resolution
     push:apply('start')
 
-   
-   love.graphics.clear(236/255, 201/255, 238/255, 255/255)
+    
+    --love.graphics.clear(42/255, 47/255, 79/255, 255/255)
     love.graphics.setFont(font)
     gStateMachine:render()
     
@@ -115,3 +114,4 @@ function renderLevel(level)
     love.graphics.print('Level:', 10, 5)
     love.graphics.printf(tostring(level),  60, 5, 40, 'left')
 end
+
