@@ -7,7 +7,7 @@ end
 
 function GameOverState:update(dt)
     
-
+    updateBackgrounds(dt)
     function love.keypressed(key)
     if key == enter or key =='return' then
         gStateMachine:change('play', {
@@ -25,7 +25,8 @@ end
 
 function GameOverState:render()
     -- title
-    love.graphics.clear(40/255, 45/255, 52/255, 255/255)
+    --love.graphics.clear(40/255, 45/255, 52/255, 255/255)
+    drawBackgrounds()
 
     love.graphics.printf("GAME OVER", 0, VIRTUAL_HEIGHT / 3,
         VIRTUAL_WIDTH, 'center')
