@@ -14,6 +14,7 @@ require 'Animation'
 require 'states/Player/PlayerWalkingRightState'
 require 'states/Player/PlayerWalkingLeftState'
 require 'states/Player/PlayerIdleState'
+require 'Explosion'
 
 
 

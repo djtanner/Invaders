@@ -1,10 +1,8 @@
 require 'Util'
 
-
--- swords from https://snoopethduckduck.itch.io/swords
 -- enemy assets from https://chierit.itch.io/lively-npcs
 -- cloud backgrounds from https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
--- spaceship from https://ansimuz.itch.io/spaceship-shooter-environment
+-- spaceship, laser, explosion from https://ansimuz.itch.io/spaceship-shooter-environment
 
 
 
@@ -19,6 +17,7 @@ gTextures = {
     ['priestess'] = love.graphics.newImage('graphics/priestess.png'),
     ['mage'] = love.graphics.newImage('graphics/ship.png'),
     ['laser'] = love.graphics.newImage('graphics/laser-bolts.png'),
+    ['explosion'] = love.graphics.newImage('graphics/explosion.png'),
     
 }
 
@@ -31,6 +30,7 @@ gFrames = {
     ['priestess'] = GenerateQuads(gTextures['priestess'], 32, 32),
     ['mage'] = GenerateQuads(gTextures['mage'], 16, 24),
     ['laser'] = GenerateQuads(gTextures['laser'], 16, 16),
+    ['explosion'] = GenerateQuads(gTextures['explosion'], 16, 16),
     
 }
 

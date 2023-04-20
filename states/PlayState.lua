@@ -12,6 +12,7 @@ function PlayState:enter(params)
     }})
    
     bullets = {}
+    explosions = {}
 
     background1 = {
         { image = love.graphics.newImage("graphics/Clouds1/1.png"), speed = 10, x=0 },
@@ -132,6 +133,10 @@ function PlayState:update(dt)
     
     end
 
+    for n, explosion in pairs(explosions) do
+        explosion:update(dt)
+     end
+
      if next(bullets) ~= nil then
         for a, bullet in ipairs(bullets) do
             bullet:update(dt)
@@ -145,9 +150,13 @@ function PlayState:update(dt)
                     self.score= self.score + 10
                     table.remove(self.enemies,k)
                     table.remove(bullets,a)
+                      
+                    --create explosion
+                    explosion = Explosion(math.floor(enemy.x), math.floor(enemy.y), false)
+                    table.insert(explosions,explosion)
+
                 end
             end
-
         end
     end
 
@@ -158,6 +167,10 @@ function PlayState:render()
 
     for k, enemy in pairs(self.enemies) do
         enemy:render()
+    end
+
+    for m, explosion in pairs(explosions) do
+        explosion:render()
     end
     
     self.player:render()
