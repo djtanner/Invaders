@@ -1,11 +1,11 @@
 Bullet = Class{}
 
 function Bullet:init()
-    self.width = 8
-    self.height = 12
+    self.width = 16
+    self.height = 16
     self.dy = -90
     self.dx = 0
-    bulletimg = love.graphics.newImage("graphics/bullet.png")
+    
 
 end
 
@@ -16,8 +16,8 @@ function Bullet:update(dt)
 end
 
 function Bullet:render()
-    --love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
-    love.graphics.draw(bulletimg, self.x,self.y, 0, 0.3,0.3)
+    
+    love.graphics.draw(gTextures['laser'], gFrames['laser'][2], self.x, self.y)
 end
 
 

@@ -18,6 +18,7 @@ gTextures = {
     ['gypsy'] = love.graphics.newImage('graphics/gypsy.png'),
     ['priestess'] = love.graphics.newImage('graphics/priestess.png'),
     ['mage'] = love.graphics.newImage('graphics/ship.png'),
+    ['laser'] = love.graphics.newImage('graphics/laser-bolts.png'),
     
 }
 
@@ -29,6 +30,7 @@ gFrames = {
     ['gypsy'] = GenerateQuads(gTextures['gypsy'], 32, 32),
     ['priestess'] = GenerateQuads(gTextures['priestess'], 32, 32),
     ['mage'] = GenerateQuads(gTextures['mage'], 16, 24),
+    ['laser'] = GenerateQuads(gTextures['laser'], 16, 16),
     
 }
 

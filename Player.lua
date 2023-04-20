@@ -34,12 +34,31 @@ function Player:update(dt)
         self.dx = 0
     end
 
+    if love.keyboard.isDown('up') then
+        self.dy = -100
+    elseif love.keyboard.isDown('down') then
+        self.dy = 100
+    else
+        self.dy = 0
+    end
+
+
     if self.dx < 0 then
         self.x = math.max(0, self.x + self.dx * dt)
 
     else
         self.x = math.min(VIRTUAL_WIDTH - self.width, self.x + self.dx * dt)
     end
+
+    if self.dy < 0 then
+        self.y = math.max(0, self.y + self.dy * dt)
+
+    else
+        self.y = math.min(VIRTUAL_HEIGHT - self.height, self.y + self.dy * dt)
+    end
+
+
+
 end
 
 
