@@ -4,6 +4,8 @@ require 'Util'
 -- cloud backgrounds from https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
 -- spaceship, laser, explosion from https://ansimuz.itch.io/spaceship-shooter-environment
 -- sound effects from https://shapeforms.itch.io/shapeforms-audio-free-sfx
+-- music from https://gooseninja.itch.io/space-music-pack
+
 
 
 gTextures = {

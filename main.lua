@@ -53,6 +53,10 @@ function love.load()
 
     gStateMachine:change('start')
  
+    music = love.audio.newSource('sounds/meet-the-princess.wav', 'static')
+    music:setLooping(true)
+    music:setVolume(0.5)
+    music:play()
 
 end
 

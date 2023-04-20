@@ -113,6 +113,7 @@ function PlayState:update(dt)
     function love.keypressed(key)
         if key == "space" then
             shoot = love.audio.newSource('sounds/shoot.wav', 'static')
+            shoot:setVolume(.25)
             shoot:play()
             bullet = Bullet()
             bullet.x = self.player.x + self.player.width/2 - bullet.width/2
@@ -127,11 +128,12 @@ function PlayState:update(dt)
             love.event.quit()
         end
 
-        if key == "r" then
+        -- for testing
+       --[[  if key == "r" then
             gStateMachine:change('gameover', {
                 score = self.score, level = self.level
             }) 
-        end
+        end ]]
     
     end
 
@@ -161,6 +163,7 @@ function PlayState:update(dt)
                     explosion = Explosion(math.floor(enemy.x), math.floor(enemy.y), false)
                     table.insert(explosions,explosion)
                     explode = love.audio.newSource('sounds/explode.wav', 'static')
+                    explode:setVolume(1.5)
                     explode:play()
 
                 end
