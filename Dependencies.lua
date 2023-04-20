@@ -28,7 +28,7 @@ gFrames = {
     ['mermaid'] = GenerateQuads(gTextures['mermaid'], 32, 32),
     ['gypsy'] = GenerateQuads(gTextures['gypsy'], 32, 32),
     ['priestess'] = GenerateQuads(gTextures['priestess'], 32, 32),
-    ['mage'] = GenerateQuads(gTextures['mage'], 16, 16),
+    ['mage'] = GenerateQuads(gTextures['mage'], 16, 24),
     
 }
 

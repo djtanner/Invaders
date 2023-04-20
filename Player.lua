@@ -4,12 +4,12 @@ function Player:init(params)
     -- x is placed in the middle
     self.x = VIRTUAL_WIDTH / 2 - 16
 
-    self.y = VIRTUAL_HEIGHT - 20
+    self.y = VIRTUAL_HEIGHT - 30
     
     self.dx = 0
  
     self.width = 16
-    self.height = 16
+    self.height = 24
 
     self.stateMachine = params.stateMachine
     
