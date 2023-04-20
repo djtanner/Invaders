@@ -1,4 +1,8 @@
 -- Statemachine code is reused from Harvard GD50 coursework taught by Colton Ogdon
+--[[
+    Author: Colton Ogden
+    cogden@cs50.harvard.edu
+]]
 StateMachine = Class{}
 
 function StateMachine:init(states)
