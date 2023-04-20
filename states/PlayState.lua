@@ -112,6 +112,8 @@ function PlayState:update(dt)
 
     function love.keypressed(key)
         if key == "space" then
+            shoot = love.audio.newSource('sounds/shoot.wav', 'static')
+            shoot:play()
             bullet = Bullet()
             bullet.x = self.player.x + self.player.width/2 - bullet.width/2
             bullet.y = self.player.y - 8
@@ -135,6 +137,10 @@ function PlayState:update(dt)
 
     for n, explosion in pairs(explosions) do
         explosion:update(dt)
+            
+        if explosion.destroyed == true then
+            table.remove(explosions,n)
+        end
      end
 
      if next(bullets) ~= nil then
