@@ -137,7 +137,7 @@ function PlayState:update(dt)
 
     for n, explosion in pairs(explosions) do
         explosion:update(dt)
-            
+
         if explosion.destroyed == true then
             table.remove(explosions,n)
         end
@@ -160,6 +160,8 @@ function PlayState:update(dt)
                     --create explosion
                     explosion = Explosion(math.floor(enemy.x), math.floor(enemy.y), false)
                     table.insert(explosions,explosion)
+                    explode = love.audio.newSource('sounds/explode.wav', 'static')
+                    explode:play()
 
                 end
             end
